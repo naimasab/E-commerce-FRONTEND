@@ -1,0 +1,116 @@
+<nz-layout class="app-layout">
+  <nz-sider
+    class="menu-sidebar"
+    nzCollapsible
+    nzWidth="256px"
+    nzBreakpoint="md"
+    [(nzCollapsed)]="isCollapsed"
+    [nzTrigger]="null"
+  >
+    <div class="sidebar-logo">
+      <span class="sidebar-logo-text">N</span>
+
+      <h1>NOMAD NEST</h1>
+    </div>
+    <ul
+      nz-menu
+      nzTheme="dark"
+      nzMode="inline"
+      [nzInlineCollapsed]="isCollapsed"
+    >
+      <!-- dashboar............................................................................................................... -->
+      <li nz-menu-item nzMatchRouter routerLink="/dashboard">
+        <a>
+          <i nz-icon nzType="dashboard"></i>
+          <span>Dashboard</span>
+        </a>
+      </li>
+
+      <!-- Order.................................................................................................................... -->
+      <li nz-submenu nzOpen nzTitle="Order" nzIcon="form">
+        <ul>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/add-order">Add Order</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/all-orders">All Order</a>
+          </li>
+        </ul>
+      </li>
+      <!-- user area ..........................................................................................................-->
+      <li nz-submenu nzOpen nzTitle="User" nzIcon="user">
+        <ul>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/add-user">Add User</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/all-users">All Users</a>
+          </li>
+        </ul>
+      </li>
+
+      <!-- review............................................................................................................... -->
+
+      <li nz-submenu nzOpen nzTitle="Categories" nzIcon="folder">
+        <ul>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/add-category">Add Category</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/all-categories">All Categories</a>
+          </li>
+        </ul>
+      </li>
+
+      <!-- Subcategory .........................................................................................................-->
+      <li nz-submenu nzOpen nzTitle="Subcategories" nzIcon="folder">
+        <ul>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/add-subcategory">Add Subcategory</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/all-subcategories">All Subcategories</a>
+          </li>
+        </ul>
+      </li>
+
+      <!-- Product ...........................................................................................................-->
+      <li nz-submenu nzOpen nzTitle="Products" nzIcon="shopping">
+        <ul>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/add-product">Add Product</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/all-products">All Products</a>
+          </li>
+        </ul>
+      </li>
+
+      <!-- review............................................................................................................... -->
+      <li nz-menu-item nzMatchRouter routerLink="/review">
+        <a>
+          <i nz-icon nzType="star"></i>
+          <span>Review</span>
+        </a>
+      </li>
+    </ul>
+  </nz-sider>
+  <nz-layout>
+    <nz-header>
+      <div class="app-header">
+        <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
+          <span
+            class="trigger"
+            nz-icon
+            [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+          ></span>
+        </span>
+      </div>
+    </nz-header>
+    <nz-content>
+      <div class="inner-content">
+        <router-outlet></router-outlet>
+      </div>
+    </nz-content>
+  </nz-layout>
+</nz-layout>
