@@ -13,7 +13,7 @@
   position: relative;
   z-index: 10;
   min-height: 100vh;
-  box-shadow: 2px 0 6px rgba(0, 21, 41, 0.35);
+  box-shadow: 2px 0 6px rgba(43, 7, 244, 0.35);
 }
 
 .header-trigger {
@@ -25,7 +25,7 @@
 }
 
 .trigger:hover {
-  color: #1890ff;
+  color: #1188ea;
 }
 
 .sidebar-logo {
@@ -34,7 +34,7 @@
   padding-left: 24px;
   overflow: hidden;
   line-height: 64px;
-  background: #001529;
+  background: #fff;
   transition: all 0.3s;
 }
 
@@ -48,7 +48,7 @@
 .sidebar-logo h1 {
   display: inline-block;
   margin: 0 0 0 20px;
-  color: #fff;
+  color: #001529;
   font-weight: 600;
   font-size: 14px;
   font-family: Avenir, Helvetica Neue, Arial, Helvetica, sans-serif;
@@ -58,7 +58,7 @@
   margin-left: 1.5rem;
   font-size: 24px;
   font-weight: 700;
-  color: #fff;
+  color: #001529;
   margin: 0 0 0 8px;
   font-family: Brush Script MT, Brush Script Std, cursive;
 }
@@ -84,4 +84,19 @@ nz-content {
   padding: 24px;
   background: #fff;
   height: 100%;
+}
+.app-layout {
+  display: flex;
+  height: 100vh;
+  overflow: hidden; /* Hide overflow to prevent scrollbars in the main layout */
+}
+
+.menu-sidebar {
+  flex: 0 0 256px; /* Fixed width for the menu sidebar */
+  overflow-y: auto; /* Allow vertical scrolling if content overflows */
+}
+
+.inner-content {
+  flex: 1; /* Take up remaining space */
+  overflow: auto; /* Allow vertical scrolling if content overflows */
 }

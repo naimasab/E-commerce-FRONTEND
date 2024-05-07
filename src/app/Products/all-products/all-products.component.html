@@ -1,1 +1,40 @@
-<p>all-products works!</p>
+<div class="shadow-lg rounded-lg overflow-hidden mx-4 md:mx-12">
+    <table class="w-full table-fixed">
+      <thead>
+        <tr class="bg-gray-100">
+          <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">image</th>
+          <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">product Name</th>
+          <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">Excerpt</th>
+          <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">Price</th>
+          <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">Stock</th>
+          <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">Category</th>
+          <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">User</th>
+
+
+          
+        </tr>
+      </thead>
+      <tbody class="bg-white">
+        <tr *ngFor="let product of products">
+            <td class="py-4 px-6 border-b border-gray-200">{{ product.imagePath }}</td>
+            <td class="py-4 px-6 border-b border-gray-200">{{ product.productName }}</td>
+            <td class="py-4 px-6 border-b border-gray-200 truncate">{{ product.shortDescription }}</td>
+            <td class="py-4 px-6 border-b border-gray-200">{{ product.originalPrice }}</td>
+            <td class="py-4 px-6 border-b border-gray-200">{{ product.inStock }}</td>
+            <td class="py-4 px-6 border-b border-gray-200">{{ product.categoryName }}</td>
+            <td class="py-4 px-6 border-b border-gray-200">{{ product.userName }}</td>
+            <td class="py-4 px-6 border-b border-gray-200">
+                <button class="px-2 py-1 mr-2 rounded-lg bg-green-500 text-white">Edit</button>
+                <button class="px-2 py-1 rounded-lg bg-red-500 text-white">Delete</button>
+            </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+    <app-pagination 
+    [totalItems]="totalItems"
+    [currentPage]="currentPage"
+    [pageSize]="pageSize"
+    [totalPages]="totalPages"
+    (pageChange)="onPageChange($event)">
+    </app-pagination>

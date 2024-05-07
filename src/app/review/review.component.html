@@ -1,20 +1,77 @@
-<div class="table-container">
-  <table class="review-table">
+<div class="reviews-container">
+  <h2>Review Reviews</h2>
+
+  <div class="pagination">
+    <label for="items-per-page">Show:</label>
+    <select
+      id="items-per-page"
+      [(ngModel)]="reviewsPerPage"
+      (change)="paginateReviews(1)"
+    >
+      <option value="5">5</option>
+      <option value="10">10</option>
+      <option value="20">20</option>
+    </select>
+    <label for="search">Search:</label>
+    <input type="text" id="search" placeholder="Search..." />
+  </div>
+
+  <table>
     <thead>
       <tr>
-        <th>Review ID</th>
-        <th>User</th>
-        <th>Product</th>
+        <th>ID</th>
+        <!-- New column for ID -->
+        <th>Consumer Name</th>
+        <th>Product Name</th>
+        <th>Rating</th>
         <th>Headline</th>
         <th>Comment</th>
-        <th>Rating</th>
-        <th>Creation Date</th>
-        <th>Updated Date</th>
-        <th>Deleted Date</th>
+        <th>Created At</th>
+        <th>Modified At</th>
+        <th>Action</th>
       </tr>
     </thead>
-    <tbody id="review-table-body">
-      <!-- Table rows will be dynamically generated here -->
+    <tbody id="reviews-body">
+      <tr *ngFor="let review of getPaginatedReviews(); let i = index">
+        <td>{{ review.id }}</td>
+        <!-- Corrected: use review.id directly -->
+        <!-- Display ID -->
+        <td>{{ review.consumerName }}</td>
+        <td>{{ review.productName }}</td>
+        <td>
+          <span *ngFor="let _ of getStarArray(review.rating)">
+            <i class="fa fa-star"></i>
+          </span>
+        </td>
+        <td>{{ review.headline }}</td>
+        <td>{{ review.comment }}</td>
+        <td>{{ review.createdAt }}</td>
+        <td>{{ review.modifiedAt }}</td>
+        <td>
+          <button class="edit-btn" (click)="editReview(review)">Edit</button>
+          <button class="delete-btn" (click)="deleteReview(review)">
+            Delete
+          </button>
+        </td>
+      </tr>
     </tbody>
   </table>
+
+  <div class="pagination">
+    <button
+      class="prev-btn"
+      (click)="paginateReviews(currentPage - 1)"
+      [disabled]="currentPage === 1"
+    >
+      Previous
+    </button>
+    <span>{{ currentPage }}</span>
+    <button
+      class="next-btn"
+      (click)="paginateReviews(currentPage + 1)"
+      [disabled]="currentPage * reviewsPerPage >= reviewsData.length"
+    >
+      Next
+    </button>
+  </div>
 </div>

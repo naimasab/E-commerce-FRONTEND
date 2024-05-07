@@ -1,0 +1,30 @@
+.order-details {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.order-section {
+  flex: 1 1 auto;
+  margin-right: 20px;
+}
+
+.order-section:last-child {
+  margin-right: 0;
+}
+
+.order-section h3 {
+  margin-top: 0;
+}
+
+.order-section table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.order-section th,
+.order-section td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
