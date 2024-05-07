@@ -1,1 +1,26 @@
-<p>all-users works!</p>
+<div class="shadow-lg rounded-lg overflow-hidden mx-4 md:mx-12">
+    <table class="w-full table-fixed">
+      <thead>
+        <tr class="bg-gray-100">
+          <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">First Name</th>
+          <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">Last Name</th>
+          <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">Status</th>
+          <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">Actions</th>
+        </tr>
+      </thead>
+      <tbody class="bg-white">
+        <tr *ngFor="let user of users">
+          <td class="py-4 px-6 border-b border-gray-200">{{ user.firstname }}</td>
+          <td class="py-4 px-6 border-b border-gray-200 truncate">{{ user.lastname }}</td>
+          <td class="py-4 px-6 border-b border-gray-200">
+            <span *ngIf="user.isEnabled=='ENABLED'" class="bg-green-500 text-white py-1 px-2 rounded-full text-xs">Enabled</span>
+            <span *ngIf="user.isEnabled=='DISABLED'" class="bg-red-500 text-white py-1 px-2 rounded-full text-xs">Disabled</span>
+          </td>
+          <td class="py-4 px-6 border-b border-gray-200">
+            <button class="px-2 py-1 mr-2 rounded-lg bg-green-500 text-white">Edit</button>
+            <button class="px-2 py-1 rounded-lg bg-red-500 text-white">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

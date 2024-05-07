@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+
+
 @Component({
   selector: 'app-all-subcategories',
   templateUrl: './all-subcategories.component.html',

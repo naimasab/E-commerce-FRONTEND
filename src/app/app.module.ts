@@ -14,11 +14,16 @@ import { IconsProviderModule } from './icons-provider.module';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { DashboardRoutingModule } from './dashboard/dashboard-routing.module';
+import { CommonModule } from '@angular/common';
+import { AllUsersComponent } from './Users/all-users/all-users.component';
+import { AllCategoriesComponent } from './Categories/all-categories/all-categories.component';
+import { PaginationComponent } from 'src/app/pagination/pagination.component';
+import { AllProductsComponent } from './Products/all-products/all-products.component';
 
 registerLocaleData(fr);
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent,AllUsersComponent,AllCategoriesComponent,PaginationComponent,AllProductsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -29,6 +34,7 @@ registerLocaleData(fr);
     NzLayoutModule,
     NzMenuModule,
     DashboardRoutingModule,
+    CommonModule
   ],
   providers: [{ provide: NZ_I18N, useValue: fr_FR }],
   bootstrap: [AppComponent],
