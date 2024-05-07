@@ -19,11 +19,25 @@ import { AllUsersComponent } from './Users/all-users/all-users.component';
 import { AllCategoriesComponent } from './Categories/all-categories/all-categories.component';
 import { PaginationComponent } from 'src/app/pagination/pagination.component';
 import { AllProductsComponent } from './Products/all-products/all-products.component';
+import { ReviewComponent } from './review/review.component'; // Import ReviewComponent
+import { StarRatingPipe } from './review/star-rating.pipe';
+import { AddOrderComponent } from './Orders/add-order/add-order.component';
+import { AllOrdersComponent } from './Orders/all-orders/all-orders.component';
 
 registerLocaleData(fr);
 
 @NgModule({
-  declarations: [AppComponent,AllUsersComponent,AllCategoriesComponent,PaginationComponent,AllProductsComponent],
+  declarations: [
+    AppComponent,
+    AllUsersComponent,
+    AllCategoriesComponent,
+    PaginationComponent,
+    AllProductsComponent,
+    ReviewComponent,
+    StarRatingPipe,
+    AddOrderComponent,
+    AllOrdersComponent, // Add ReviewComponent to declarations array
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -34,7 +48,7 @@ registerLocaleData(fr);
     NzLayoutModule,
     NzMenuModule,
     DashboardRoutingModule,
-    CommonModule
+    CommonModule,
   ],
   providers: [{ provide: NZ_I18N, useValue: fr_FR }],
   bootstrap: [AppComponent],

@@ -1,159 +1,135 @@
-/* Reset default margin and padding */
-html,
-body,
-div,
-span,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  vertical-align: baseline;
-}
+/* Importing Font Awesome */
+@import "~font-awesome/css/font-awesome.min.css";
 
-/* General styling */
+/* Global Styles */
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f5f5f5;
+  margin: 0;
+  font-family: "Arial", sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
 }
 
-.table-container {
+/* Review Container */
+.reviews-container {
   margin: 20px auto;
   width: 90%;
   max-width: 1200px;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.review-table {
+/* Title */
+h2 {
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 32px;
+  text-align: center;
+}
+
+/* Pagination */
+.pagination {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#items-per-page,
+#search {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Table */
+table {
   width: 100%;
   border-collapse: collapse;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
-.review-table th,
-.review-table td {
-  padding: 12px;
+th,
+td {
+  padding: 15px;
   text-align: left;
-  border-bottom: 1px solid #ddd;
 }
 
-.review-table th {
-  background-color: #f2f2f2;
+th {
+  background-color: #f5f5f5;
   font-weight: bold;
+  color: #555;
 }
 
-.review-table tbody tr:nth-child(even) {
-  background-color: #f9f9f9;
+tr:nth-child(even) {
+  background-color: #fff;
 }
 
-.review-table tbody tr:hover {
+tr:hover {
   background-color: #f0f0f0;
 }
 
-.review-table tbody tr td:first-child {
-  width: 80px;
+/* Star Rating */
+.star-rating {
+  display: inline-block;
+  font-size: 20px;
+  color: #ffd700;
 }
 
-.review-table tbody tr td:nth-child(2) {
-  width: 120px;
+/* Buttons */
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s;
 }
 
-.review-table tbody tr td:nth-child(3) {
-  width: 200px;
+button.edit-btn,
+button.delete-btn {
+  padding: 8px 12px;
+  margin-right: 8px; /* Add spacing between buttons */
+  font-size: 14px;
+  color: #fff;
+  background-color: #007bff;
+  border: 1px solid #007bff;
 }
 
-.review-table tbody tr td img {
-  max-width: 80px;
-  border-radius: 50%;
+button.delete-btn {
+  background-color: #dc3545;
+  border: 1px solid #dc3545;
 }
 
-/* Responsive styling */
-@media screen and (max-width: 768px) {
-  .table-container {
-    width: 100%;
-    border-radius: 0;
-    box-shadow: none;
-  }
+button.edit-btn:hover,
+button.delete-btn:hover {
+  background-color: transparent;
+  color: #007bff;
+}
 
-  .review-table th,
-  .review-table td {
-    padding: 8px;
-  }
+/* Pagination Buttons */
+button.prev-btn,
+button.next-btn {
+  padding: 8px 12px;
+  font-size: 14px;
+  background-color: #17a2b8;
+  color: #fff;
+}
 
-  .review-table tbody tr td img {
-    max-width: 60px;
-  }
+button.prev-btn:hover,
+button.next-btn:hover {
+  background-color: #138496;
+}
+/* Show Dropdown */
+#items-per-page {
+  margin-right: 10px; /* Add margin to the right of the "Show" dropdown */
+}
+
+/* Search Input */
+#search {
+  margin-left: 10px; /* Add margin to the left of the search input */
+}
+
+/* Table */
+table {
+  /* Existing styles */
+  margin-top: 20px; /* Add margin to the top of the table */
 }
